@@ -5,10 +5,10 @@ doskey alias=if ".$*." == ".." (doskey /macros) else (doskey $*)
 rem doskey printcat=java -jar c:\depot\settop\atlas\tools\printCat\dist\printCat.jar $* 
 
 rem doskey vi=vim $*
-#doskey vi="C:\Program Files (x86)\Vim\vim80\gvim" $*
-#doskey vim="C:\Program Files (x86)\Vim\vim80\gvim" $*
-#doskey gvim="C:\Program Files (x86)\Vim\vim80\gvim" $*
-#doskey edit="C:\Program Files (x86)\Notepad++\notepad++.exe" $*
+rem doskey vi="C:\Program Files (x86)\Vim\vim80\gvim" $*
+rem doskey vim="C:\Program Files (x86)\Vim\vim80\gvim" $*
+rem doskey gvim="C:\Program Files (x86)\Vim\vim80\gvim" $*
+rem doskey edit="C:\Program Files (x86)\Notepad++\notepad++.exe" $*
 
 set binpath=%USERPROFILE%\bin\batch
 rem Pretty path
