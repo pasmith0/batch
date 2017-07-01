@@ -11,7 +11,7 @@ setlocal enabledelayedexpansion
 set /a dircount=0
 set /a filecount=0
 set /a foundm4a=0
-rem set "START_DIR=C:\Users\Paul\Music\iTunes\iTunes Media"
+rem set "START_DIR=%USERPROFILE%\Music\iTunes\iTunes Media"
 set START_DIR="%~2"
 rem echo Start dir is %START_DIR%
 
