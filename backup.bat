@@ -4,10 +4,16 @@ REM using robocopy to mirror the files.
 
 SETLOCAL EnableDelayedExpansion 
 
+if [%1] == [] (
+   echo Must enter destination drive letter.
+   goto EOF
+)
+
+set REMOTEBACKUPDRIVE=%~1
 set MYHOMEDRIVE=C:
 set MYHOMEDIR=\Users\E128531
 set SOURCEBACKUPDIR=%MYHOMEDRIVE%%MYHOMEDIR%
-set REMOTEBACKUPDRIVE=H:
+rem set REMOTEBACKUPDRIVE=H:
 set REMOTEBACKUPROOTDIR=\backup\laptop
 set BACKUPCMD=robocopy/MIR /R:2 /W:2
 set REMOTEBACKUPDIR=%REMOTEBACKUPDRIVE%%REMOTEBACKUPROOTDIR%%MYHOMEDIR%
