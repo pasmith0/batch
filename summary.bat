@@ -6,12 +6,12 @@ set "START_DIR=%1"
 if NOT [%1] == [] (
   set START_DIR=%~1
 ) else (
-  set START_DIR=C:\Users\Paul\Music\iTunes\iTunes Media
+  set START_DIR=%USERPROFILE%\Music\iTunes\iTunes Media
 )
 
 echo Summary of music in %START_DIR%
 
-rem set "START_DIR=C:\Users\Paul\Music\iTunes\iTunes Music"
+rem set "START_DIR=%USERPROFILE%\Music\iTunes\iTunes Music"
 rem set /a CALCTOTAL = 0
 set /a MUSICTOTAL = 0
 
@@ -31,7 +31,7 @@ REM Now I have a batch file that does it. The batch file counts the m4a
 REM files in itlp directories and subdirs.
 REM Calculate it now so we can subtract it from the MP4 file total.
 REM It will be displayed later.
-call find_itlp ITLPAUDIOFILES "%START_DIR%"
+call findItlp ITLPAUDIOFILES "%START_DIR%"
 rem echo ITLPAUDIOFILES is %ITLPAUDIOFILES%
 
 echo.

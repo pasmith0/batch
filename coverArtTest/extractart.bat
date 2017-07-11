@@ -1,0 +1,1 @@
+@metaflac --export-picture-to=extracted.jpg %1

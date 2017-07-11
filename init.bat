@@ -5,5 +5,5 @@ rem This one is for Ruby native gem
 rem call "C:\Program Files\Ruby DevKit-mingw64-64-4.7.2\devkitvars.bat"
 
 rem My aliases
-call c:\Users\E128531\bin\batch\aliases.bat
+call %USERPROFILE%\bin\batch\aliases.bat
 
