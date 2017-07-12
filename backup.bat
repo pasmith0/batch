@@ -65,6 +65,10 @@ REM **********************************************
 REM Do this one directory at a time. Don't want to backup all the 
 REM things in my home directory.
 
+REM The home directory. Note this uses a different backup command (one that doesn't 
+REM copy all the sub direcories.
+robocopy /R:2 /W:2 "%MYHOMEDRIVE%\%MYHOMEDIR%"        "%REMOTEBACKUPDIR%"
+
 REM Sometimes I put important stuff on the desktop
 title Backing up Desktop...
 %BACKUPCMD% "%MYHOMEDRIVE%\%MYHOMEDIR%\Desktop"       "%REMOTEBACKUPDIR%\Desktop"
