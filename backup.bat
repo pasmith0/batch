@@ -4,10 +4,16 @@ REM using robocopy to mirror the files.
 
 SETLOCAL EnableDelayedExpansion 
 
+if [%1] == [] (
+   echo Must enter destination drive letter.
+   goto EOF
+)
+
+set REMOTEBACKUPDRIVE=%~1
 set MYHOMEDRIVE=C:
 set MYHOMEDIR=\Users\E128531
 set SOURCEBACKUPDIR=%MYHOMEDRIVE%%MYHOMEDIR%
-set REMOTEBACKUPDRIVE=H:
+rem set REMOTEBACKUPDRIVE=H:
 set REMOTEBACKUPROOTDIR=\backup\laptop
 set BACKUPCMD=robocopy/MIR /R:2 /W:2
 set REMOTEBACKUPDIR=%REMOTEBACKUPDRIVE%%REMOTEBACKUPROOTDIR%%MYHOMEDIR%
@@ -59,6 +65,10 @@ REM **********************************************
 REM Do this one directory at a time. Don't want to backup all the 
 REM things in my home directory.
 
+REM The home directory. Note this uses a different backup command (one that doesn't 
+REM copy all the sub direcories.
+robocopy /R:2 /W:2 "%MYHOMEDRIVE%\%MYHOMEDIR%"        "%REMOTEBACKUPDIR%"
+
 REM Sometimes I put important stuff on the desktop
 title Backing up Desktop...
 %BACKUPCMD% "%MYHOMEDRIVE%\%MYHOMEDIR%\Desktop"       "%REMOTEBACKUPDIR%\Desktop"
@@ -75,6 +85,8 @@ title Backing up bin...
 REM Dev stuff - this is not ODN development code.
 title Backing up dev... 
 %BACKUPCMD% "%MYHOMEDRIVE%\%MYHOMEDIR%\dev"           "%REMOTEBACKUPDIR%\dev"
+title Backing up devkit... 
+%BACKUPCMD% "%MYHOMEDRIVE%\%MYHOMEDIR%\devkit"        "%REMOTEBACKUPDIR%\devkit"
 
 REM Eclipse workspaces
 title Backing up Eclipse workspaces...
