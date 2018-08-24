@@ -33,10 +33,12 @@ call :writeInitialize
 rem This echos without newline.
 rem The normal way to do this is set/p but 
 rem it doesn't work with the bracket characters
-call :write "Dark colors ==>>"
+rem call :write "Dark colors ==>>"
 
 call :write "||"
-call :ColorText 01 "01 Dark Blue"
+rem call :ColorText 01 "01 Dark Blue"
+rem call :ColorText 01 "01    Dk Blue"
+
 call :write "||"
 call :ColorText 02 "02 Dark Green"
 call :write "||"
