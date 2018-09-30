@@ -32,7 +32,7 @@ REM files in itlp directories and subdirs.
 REM Calculate it now so we can subtract it from the MP4 file total.
 REM It will be displayed later.
 call findItlp ITLPAUDIOFILES "%START_DIR%"
-rem echo ITLPAUDIOFILES is %ITLPAUDIOFILES%
+rem ITLPAUDIOFILES is %ITLPAUDIOFILES%
 
 echo.
 echo -----------------------------------------

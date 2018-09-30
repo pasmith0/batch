@@ -33,7 +33,7 @@ for /r /d %%i in (.) do (
       dir /b /a-d "*.m4a" "*.m4p" "*.mp3" 2>nul | find "" /v /n /c > total.out
       set /p NUMFILES=<total.out
         if !NUMFILES! GTR 0 (
-        echo Music files in directory %%~fi: !NUMFILES! 
+        rem echo Music files in directory %%~fi: !NUMFILES! 
         set /a TOTAL=TOTAL+NUMFILES
       )
       del total.out
