@@ -7,7 +7,7 @@ if NOT [%1] == [] (
   set START_DIR=%~1
 ) else (
   rem set START_DIR=%USERPROFILE%\Music\iTunes\iTunes Media
-  set START_DIR=D:\Users\Paul\Music\iTunes\iTunes Media
+  set START_DIR=C:\Users\Paul\Music\iTunes\iTunes Media
 )
 
 echo Summary of music in %START_DIR%
