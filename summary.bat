@@ -6,11 +6,9 @@ set "START_DIR=%1"
 if NOT [%1] == [] (
   set START_DIR=%~1
 ) else (
-  rem set START_DIR=%USERPROFILE%\Music\iTunes\iTunes Media
-  set START_DIR=C:\Users\Paul\Music\iTunes\iTunes Media
+  set START_DIR=%USERPROFILE%\Music\iTunes\iTunes Media
 )
 
-echo Summary of music in %START_DIR%
 
 rem set "START_DIR=%USERPROFILE%\Music\iTunes\iTunes Music"
 rem set /a CALCTOTAL = 0
@@ -33,6 +31,8 @@ REM It will be displayed later.
 rem call findItlp ITLPAUDIOFILES "%START_DIR%"
 set ITLPAUDIOFILES=0
 rem ITLPAUDIOFILES is %ITLPAUDIOFILES%
+
+echo Summary of music in %START_DIR%\Music
 
 echo.
 echo -----------------------------------------
@@ -65,6 +65,17 @@ del total.out
 set MyStr="Total music files:"
 set /a MUSICTOTAL = M4ATOTAL + M4PTOTAL + MP3TOTAL
 call :PrintIt %MyStr% %MUSICTOTAL%
+
+echo Summary of music in %START_DIR%\Apple Music
+
+rem Apple Music files
+dir /s /b /a-d "%START_DIR%\Apple Music\*.m4p" 2>nul | find "" /v /n /c > total.out
+set /p M4PTOTAL= <total.out
+rem set /a CALCTOTAL = CALCTOTAL + M4PTOTAL
+set MyStr="Apple Music files:"
+call :PrintIt %MyStr% %M4PTOTAL%
+del total.out
+
 
 rem 
 echo.
