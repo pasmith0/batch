@@ -62,19 +62,20 @@ set MyStr="MP3 music files:"
 call :PrintIt %MyStr% %MP3TOTAL%
 del total.out
 
-set MyStr="Total music files:"
-set /a MUSICTOTAL = M4ATOTAL + M4PTOTAL + MP3TOTAL
-call :PrintIt %MyStr% %MUSICTOTAL%
-
-echo Summary of music in %START_DIR%\Apple Music
+rem echo Summary of music in %START_DIR%\Apple Music
 
 rem Apple Music files
 dir /s /b /a-d "%START_DIR%\Apple Music\*.m4p" 2>nul | find "" /v /n /c > total.out
-set /p M4PTOTAL= <total.out
+set /p AMTOTAL= <total.out
 rem set /a CALCTOTAL = CALCTOTAL + M4PTOTAL
 set MyStr="Apple Music files:"
-call :PrintIt %MyStr% %M4PTOTAL%
+call :PrintIt %MyStr% %AMTOTAL%
 del total.out
+
+set MyStr="Total music files:"
+set /a MUSICTOTAL = M4ATOTAL + M4PTOTAL + MP3TOTAL + AMTOTAL
+call :PrintIt %MyStr% %MUSICTOTAL%
+
 
 
 rem 
