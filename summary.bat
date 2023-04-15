@@ -54,6 +54,13 @@ set MyStr="M4P music files:"
 call :PrintIt %MyStr% %M4PTOTAL%
 del total.out
 
+rem Total AAC music files
+set /a AACTOTAL = M4ATOTAL + M4PTOTAL 
+set MyStr="Total AAC music files:"
+echo -----------------------------------------
+call :PrintIt %MyStr% %AACTOTAL%
+echo -----------------------------------------
+
 rem mp3 music files
 dir /s /b /a-d "%START_DIR%\Music\*.mp3" 2>nul | find "" /v /n /c > total.out
 set /p MP3TOTAL= <total.out
@@ -74,7 +81,9 @@ del total.out
 
 set MyStr="Total music files:"
 set /a MUSICTOTAL = M4ATOTAL + M4PTOTAL + MP3TOTAL + AMTOTAL
+echo -----------------------------------------
 call :PrintIt %MyStr% %MUSICTOTAL%
+echo -----------------------------------------
 
 
 
