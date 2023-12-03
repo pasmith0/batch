@@ -6,7 +6,8 @@ set "START_DIR=%1"
 if NOT [%1] == [] (
   set START_DIR=%~1
 ) else (
-  set START_DIR=%USERPROFILE%\Music\iTunes\iTunes Media
+  rem set START_DIR=%USERPROFILE%\Music\iTunes\iTunes Media
+  set START_DIR=D:\Music\iTunes\iTunes Media\
 )
 
 
@@ -99,8 +100,8 @@ call :PrintIt %MyStr% %ITLPAUDIODIR%
 del total.out
 
 REM Now print the ITLP audio file total.
-set MyStr="ITLP audio files:"
-call :PrintIt %MyStr% %ITLPAUDIOFILES%
+rem set MyStr="ITLP audio files:"
+rem call :PrintIt %MyStr% %ITLPAUDIOFILES%
 
 rem music video files
 dir /s /b /a-d "%START_DIR%\Music\*.m4v" "*.mpg" 2>nul | find "" /v /n /c > total.out
